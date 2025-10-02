@@ -5,9 +5,9 @@
   <title>Η Αποστολή Σου Ξεκινά...</title>
   <style>
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Courier New', monospace;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+      color: #111;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -15,24 +15,46 @@
       height: 100vh;
       margin: 0;
       text-align: center;
+      animation: bgAnimation 10s ease infinite;
     }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     h1 {
       font-size: 3em;
-      color: #f39c12;
+      color: #ff6f61;
       margin-bottom: 20px;
+      text-shadow: 2px 2px #fff;
     }
+
     #timer {
       font-size: 5em;
       margin: 20px 0;
-      color: #e74c3c;
+      color: #ff3c38;
+      text-shadow: 1px 1px #fff;
     }
+
     .msg {
-      font-size: 1.5em;
+      font-size: 1.6em;
       margin-top: 30px;
+      color: #111;
     }
+
+    #runMessage {
+      font-size: 2em;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #2a9d8f;
+      letter-spacing: 2px;
+    }
+
     #endMessage {
       font-size: 1.8em;
-      color: #2ecc71;
+      color: #e9c46a;
       margin-top: 30px;
       display: none;
     }
@@ -43,6 +65,7 @@
   <p>Έχεις <strong>90 λεπτά</strong> να ολοκληρώσεις την αποστολή σου!</p>
   <div id="timer"></div>
   <div class="msg">Αν αποτύχεις... θα μείνεις χωρίς καινούρια ρούχα και θα σου πάρουμε τα λεφτά πίσω 😱</div>
+  <div id="runMessage">🏃‍♀️ ΤΡΕΧΑ ΜΩΡΗ ΠΕΡΓΑΛΙΔΑΙΝΑ 🏃‍♀️</div>
   <div id="endMessage">
     🎉 Συγχαρητήρια! Η αποστολή ολοκληρώθηκε!  
     Ετοιμάσου για ψώνια 🛍️✨  
@@ -68,6 +91,7 @@
           clearInterval(interval);
           document.getElementById("timer").innerHTML = "0:00";
           document.getElementById("endMessage").style.display = "block";
+          document.getElementById("runMessage").style.display = "none";
         }
       }, 1000);
     }
