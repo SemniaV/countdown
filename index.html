@@ -8,23 +8,32 @@
       background-color: #111;
       color: #fff;
       font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
       text-align: center;
-      padding-top: 50px;
     }
     h1 {
-      font-size: 2.5em;
+      font-size: 3em;
       color: #f39c12;
+      margin-bottom: 20px;
     }
     #timer {
-      font-size: 4em;
-      margin: 20px;
+      font-size: 5em;
+      margin: 20px 0;
       color: #e74c3c;
     }
     .msg {
-      font-size: 1.2em;
+      font-size: 1.5em;
       margin-top: 30px;
     }
-    .hidden {
+    #endMessage {
+      font-size: 1.8em;
+      color: #2ecc71;
+      margin-top: 30px;
       display: none;
     }
   </style>
@@ -33,8 +42,8 @@
   <h1>👗 ΑΠΟΣΤΟΛΗ ΜΟΔΑΣ 👠</h1>
   <p>Έχεις <strong>90 λεπτά</strong> να ολοκληρώσεις την αποστολή σου!</p>
   <div id="timer"></div>
-  <div class="msg">Αν αποτύχεις... θα μείνεις χωρίς καινούρια ρούχα 😱</div>
-  <div id="endMessage" class="msg hidden">
+  <div class="msg">Αν αποτύχεις... θα μείνεις χωρίς καινούρια ρούχα και θα σου πάρουμε τα λεφτά πίσω 😱</div>
+  <div id="endMessage">
     🎉 Συγχαρητήρια! Η αποστολή ολοκληρώθηκε!  
     Ετοιμάσου για ψώνια 🛍️✨  
     (Το δώρο σε περιμένει 👀)
@@ -58,7 +67,7 @@
         if (--timer < 0) {
           clearInterval(interval);
           document.getElementById("timer").innerHTML = "0:00";
-          document.getElementById("endMessage").classList.remove("hidden");
+          document.getElementById("endMessage").style.display = "block";
         }
       }, 1000);
     }
