@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Αντίστροφη Μέτρηση</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #timer {
+      font-size: 4em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Η αντίστροφη μέτρηση ξεκίνησε!</h1>
+  <div id="timer"></div>
+
+  <script>
+    // διάρκεια σε δευτερόλεπτα (π.χ. 5 λεπτά = 300s)
+    let duration = 5 * 60; 
+
+    function startCountdown(seconds) {
+      let timer = seconds;
+
+      const interval = setInterval(() => {
+        let minutes = Math.floor(timer / 60);
+        let secs = timer % 60;
+        secs = secs < 10 ? "0" + secs : secs;
+
+        document.getElementById("timer").innerHTML =
+          minutes + ":" + secs;
+
+        if (--timer < 0) {
+          clearInterval(interval);
+          document.getElementById("timer").innerHTML = "ΤΕΛΟΣ!";
+        }
+      }, 1000);
+    }
+
+    // ξεκινάει αυτόματα όταν φορτώσει η σελίδα
+    startCountdown(duration);
+  </script>
+</body>
+</html>
