@@ -1,29 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="el">
 <head>
   <meta charset="UTF-8">
-  <title>Αντίστροφη Μέτρηση</title>
+  <title>Η Αποστολή Σου Ξεκινά...</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #111;
+      background-color: #111;
       color: #fff;
+      font-family: 'Courier New', monospace;
       text-align: center;
       padding-top: 50px;
     }
+    h1 {
+      font-size: 2.5em;
+      color: #f39c12;
+    }
     #timer {
       font-size: 4em;
-      margin-top: 20px;
+      margin: 20px;
+      color: #e74c3c;
+    }
+    .msg {
+      font-size: 1.2em;
+      margin-top: 30px;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Η αντίστροφη μέτρηση ξεκίνησε!</h1>
+  <h1>👗 ΑΠΟΣΤΟΛΗ ΜΟΔΑΣ 👠</h1>
+  <p>Έχεις <strong>90 λεπτά</strong> να ολοκληρώσεις την αποστολή σου!</p>
   <div id="timer"></div>
+  <div class="msg">Αν αποτύχεις... θα μείνεις χωρίς καινούρια ρούχα 😱</div>
+  <div id="endMessage" class="msg hidden">
+    🎉 Συγχαρητήρια! Η αποστολή ολοκληρώθηκε!  
+    Ετοιμάσου για ψώνια 🛍️✨  
+    (Το δώρο σε περιμένει 👀)
+  </div>
 
   <script>
-    // διάρκεια σε δευτερόλεπτα (π.χ. 5 λεπτά = 300s)
-    let duration = 5 * 60; 
+    // 90 λεπτά σε δευτερόλεπτα
+    let duration = 90 * 60;
 
     function startCountdown(seconds) {
       let timer = seconds;
@@ -38,12 +57,12 @@
 
         if (--timer < 0) {
           clearInterval(interval);
-          document.getElementById("timer").innerHTML = "ΤΕΛΟΣ!";
+          document.getElementById("timer").innerHTML = "0:00";
+          document.getElementById("endMessage").classList.remove("hidden");
         }
       }, 1000);
     }
 
-    // ξεκινάει αυτόματα όταν φορτώσει η σελίδα
     startCountdown(duration);
   </script>
 </body>
